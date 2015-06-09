@@ -125,6 +125,8 @@ angular.module('ui.layout', [])
 
       lastPos = mousePos - offset($element)[ctrl.sizeProperties.offsetPos];
 
+      $scope.$broadcast('ui-layout.resize');
+
       //Cancel previous rAF call
       if(animationFrameRequested) {
         window.cancelAnimationFrame(animationFrameRequested);
@@ -288,6 +290,7 @@ angular.module('ui.layout', [])
 
           usedSpace += c.size;
         }
+        $scope.$broadcast('ui-layout.resize');
       }
 
 
